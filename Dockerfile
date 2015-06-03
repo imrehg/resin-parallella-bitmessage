@@ -19,7 +19,8 @@ RUN mkdir -p /app && \
     curl -sSL https://github.com/Bitmessage/PyBitmessage/archive/master.tar.gz | tar -C /app -xz && \
     mv /app/PyBitmessage-* /app/PyBitmessage
 
-ADD keys.dat /app/PyBitmessage/src/keys.dat
+ADD configs/PyBitmessage/keys.dat /app/PyBitmessage/src/
+ADD start.sh /app/PyBitmessage/src/
 
 # PyBitmessage port
 EXPOSE 8444
@@ -31,4 +32,4 @@ EXPOSE 8844
 
 WORKDIR /app/PyBitmessage/src
 
-CMD ["python", "bitmessagemain.py", ">> /var/log/pybitmessage.log 2>&1"]
+CMD ["bash", "start.sh"]
