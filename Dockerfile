@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app && \
-    curl -sSL https://github.com/Bitmessage/PyBitmessage/tarball/v0.4.4 | tar -C /app -xz && \
-    mv /app/Bitmessage-PyBitmessage-* /app/PyBitmessage
+    curl -sSL https://github.com/Bitmessage/PyBitmessage/archive/master.tar.gz | tar -C /app -xz && \
+    mv /app/PyBitmessage-* /app/PyBitmessage
 
 ADD . /app/PyBitmessage/src
 
