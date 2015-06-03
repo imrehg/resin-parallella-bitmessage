@@ -9,7 +9,7 @@ MAINTAINER Gergely Imreh <imrehg@mail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y \
-    python \
+    python=2.7.9-1 \
     openssl \
     curl \
     # Remove package lists to free up space
@@ -26,6 +26,8 @@ EXPOSE 8444
 # PyBitmessage API port
 EXPOSE 8844
 
+RUN ln -sf /dev/stdout /var/log/pybitmessage.log
+
 WORKDIR /app/PyBitmessage/src
 
-CMD ["python", "bitmessagemain.py"]
+CMD ["python", "bitmessagemain.py", ">> /var/log/pybitmessage.log 2>&1"]
