@@ -26,7 +26,8 @@ EXPOSE 8444
 # PyBitmessage API port
 EXPOSE 8844
 
-RUN ln -sf /dev/stdout /var/log/pybitmessage.log
+# Uncomment this to send all log to the console
+#RUN ln -sf /dev/stdout /var/log/pybitmessage.log
 
 WORKDIR /app/PyBitmessage/src
 
