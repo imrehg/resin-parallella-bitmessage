@@ -1,5 +1,5 @@
 #
-# Resin.io image for a PyBitcoin node on a Parallella
+# Resin.io image for a PyBitmessage node on a Parallella
 #
 
 FROM armhfbuild/debian:jessie
