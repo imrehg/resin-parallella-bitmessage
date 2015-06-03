@@ -19,7 +19,7 @@ RUN mkdir -p /app && \
     curl -sSL https://github.com/Bitmessage/PyBitmessage/archive/master.tar.gz | tar -C /app -xz && \
     mv /app/PyBitmessage-* /app/PyBitmessage
 
-ADD . /app/PyBitmessage/src
+ADD keys.dat /app/PyBitmessage/src/keys.dat
 
 # PyBitmessage port
 EXPOSE 8444
